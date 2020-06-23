@@ -1,13 +1,17 @@
 import speech_recognition as sr
 from gtts import *
 import pyglet
-import time, os
+import os
+
 
 r = sr.Recognizer()
 
 with sr.Microphone() as source:
+
 	print("Di algo")
+
 	try:
+
 		audio = r.listen(source)
 		text = r.recognize_google(audio, language = 'es-ES')
 		print("Has dicho:", text)
@@ -16,5 +20,7 @@ with sr.Microphone() as source:
 		file.save(filename)
 		os.system('afplay  ' + filename)
 		os.remove(filename)
+
 	except:
+
 		print("Ha ocurrido un error")
